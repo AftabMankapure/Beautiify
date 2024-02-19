@@ -337,10 +337,91 @@ nav li {
     margin-right: 10px;
 }
 
-nav li:hover {
-    border-bottom: 0.2rem white solid;
+/* nav li:hover {
+
+    padding-top: 2px;
+    padding-bottom: 1px;
+    padding-left:px;
+    padding-right: 10px;
+
+    border-bottom: 2px  red solid;
+    padding-bottom: 5px;
+    border-top: 2px red solid;
+    border-left: 2px red solid;
+    border-right: 2px red solid;
+
     transition: 0.3s ease-in-out;
+} */
+
+
+nav li {
+    position: relative;
 }
+
+/* nav li::before,
+nav li::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: red;
+    transition: width 0.3s ease-in-out;
+}
+
+nav li:hover::before,
+nav li:hover::after {
+    width: 100%;
+}
+
+nav li:hover::before {
+    top: 0;
+    left: 0;
+}
+
+nav li:hover::after {
+    bottom: 0;
+    right: 0;
+} */
+ 
+nav li {
+    position: relative;
+}
+
+nav li:after,
+nav li:before {
+  content: "";
+  position: absolute;
+  display: block;
+  border: 0px solid transparent;
+}
+
+nav li:after {
+  width: 0%;
+  height: 30px; /* Adjust this value to set the thickness of the borders */
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  transition: all 0.3s ease;
+  top: 0; /* Adjust this value to set the position of the top border */
+}
+
+nav li:before {
+  width: 100%;
+  height: 2px; /* Adjust this value to set the thickness of the borders */
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  transition: all 0.5s ease;
+  bottom: 0; 
+  /* Adjust this value to set the position of the bottom border */
+}
+
+nav li:hover::before {
+  height: 100%;
+}
+
+nav li:hover::after {
+  width: 100%;
+}
+
 
 .logo {
     font-size: 2.3rem;
@@ -847,6 +928,7 @@ footer p a {
     }
 
     nav li:hover {
+        
         border-bottom: 0.4rem var(--light) solid;
         transition: 0.3s ease-in-out;
     }
